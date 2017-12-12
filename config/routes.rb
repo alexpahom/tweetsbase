@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   get '/users/new'        => 'users#new'
   get '/users/:id/edit'   => 'users#edit', as: :edit_user
   get '/users/:id'        => 'users#show', as: :user
+  post 'users'            => 'users#create'
+  
 
 end
