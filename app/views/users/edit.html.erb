@@ -1,0 +1,14 @@
+
+<%= form_for(@user) do |f| %>
+  <div class="field">
+  <%= f.text_field :username,   :placeholder => 'User name' %><br>
+  <%= f.text_field :first_name, :placeholder => 'First name' %><br>
+  <%= f.text_field :last_name,  :placeholder => 'Last name' %><br>
+  <%= f.email_field :email,     :placeholder => 'Email' %><br>
+  <%= f.text_field :phone,      :placeholder => 'Phone' %><br>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Update' %>
+    <%= link_to 'Cancel', users_path %>
+  </div>
+<% end %>
