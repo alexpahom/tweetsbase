@@ -13,6 +13,8 @@ Things you may want to cover:
 
 User's actions
 
+'/' -> list of users and their messages
+
 '/users' -> lists all the users
 
 '/users/:id' -> shows user's info
