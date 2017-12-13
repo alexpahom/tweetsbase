@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :fetch_user, only: %i(show edit update destroy)
+
   def index
     @users = User.all
   end
@@ -7,13 +9,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  def edit; end
 
   def create
     @user = User.new(user_params)
@@ -25,7 +23,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       redirect_to(user_path, notice: 'Successfully saved.')
     else
@@ -33,7 +30,14 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @user.destroy
+    redirect_to(users_path, notice: 'Deleted.')
+  end
+
+  def fetch_user
+    @user = User.find(params[:id])
+  end
 
   private
 
