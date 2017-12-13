@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.first(params[:id])
   end
 
   def create
@@ -23,6 +23,17 @@ class UsersController < ApplicationController
       redirect_to(users_new_path, notice: 'Username / Email should be unique. All the fields should be populated')
     end
   end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to(user_path, notice: 'Successfully saved.')
+    else
+      redirect_to(edit_user_path, notice: 'Cannot be saved')
+    end
+  end
+
+  def destroy; end
 
   private
 

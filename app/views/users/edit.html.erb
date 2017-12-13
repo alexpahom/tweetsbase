@@ -10,5 +10,6 @@
   <div class="actions">
     <%= f.submit 'Update' %>
     <%= link_to 'Cancel', users_path %>
+    <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Sure?' } %>
   </div>
 <% end %>
