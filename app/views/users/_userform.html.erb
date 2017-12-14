@@ -1,0 +1,14 @@
+<%= bootstrap_form_for(@user, layout: :horizontal, label_col: 'col-sm-3', control_col: 'col-sm-5') do |f| %>
+  <div class="field">
+    <%= f.text_field :username %><br>
+    <%= f.text_field :first_name %><br>
+    <%= f.text_field :last_name %><br>
+    <%= f.email_field :email %><br>
+    <%= f.text_field :phone %><br>
+  </div>
+  <%= f.form_group do %>
+    <%= f.submit %>
+    <%= link_to 'Cancel', users_path %>
+    <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Sure?' } unless @user.new_record? %>
+  <% end %>
+<% end %>
