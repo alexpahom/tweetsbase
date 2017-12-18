@@ -21,6 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'redis', '~> 3.0'
 gem 'bcrypt',       '~> 3.1.7'
 gem 'rails-html-sanitizer'
+gem 'rails-controller-testing'
 gem 'rubocop',      '~> 0.51.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
