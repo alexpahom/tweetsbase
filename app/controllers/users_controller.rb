@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to(users_path, notice: 'Everything worked out!')
     else
-      redirect_to(users_new_path, notice: 'Username / Email should be unique. All the fields should be populated')
+      redirect_to(users_new_path, alert: 'Username / Email should be unique. All the fields should be populated')
     end
   end
 
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       redirect_to(user_path, notice: 'Successfully saved.')
     else
-      redirect_to(edit_user_path, notice: 'Cannot be saved')
+      redirect_to(edit_user_path, alert: 'Cannot be saved')
     end
   end
 

@@ -19,5 +19,7 @@
   </tr>
   <% end %>
 </table>
+  <em><%= 'No users found' if @users.size == 0 %></em><br>
 <%= link_to 'Create User', users_new_path, class: 'btn btn-default btn-primary' %>
+
 </div>
