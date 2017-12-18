@@ -1,0 +1,64 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree
+ *= require_rails_bootstrap_forms
+ *= require_self
+ */
+
+
+@import "bootstrap-sprockets"
+@import "bootstrap"
+@import "rails_bootstrap_forms"
+
+body
+    background-image: url("graphy_@2X.png")
+    font-family: 'Open Sans', sans-serif
+
+img
+    width: 135px
+    margin: 0 auto
+    display: block
+
+.col-xs-9
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15)
+    margin: 10px 100px
+    padding-bottom: 40px
+
+.navbar
+    background-color: rgb(43,43,43)
+    min-height: 900px
+    min-width: 160px
+    width: 200px
+
+.header
+    height: 80px
+    text-align: right
+    font-family: 'Russo One', sans-serif
+
+#header_under
+    background-color: rgb(226,226,226)
+    height: 12px
+
+.container
+    width: auto
+
+
+.btn-default
+    font-family: 'Open Sans', sans-serif
+    font-weight: bold
+
+.btn-primary
+    background-color: chocolate
+
+.title
+    font-family: 'Russo One', sans-serif

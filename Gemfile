@@ -5,24 +5,20 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass'
+gem 'bootstrap_form'
+gem 'coffee-rails', '~> 4.2'
+gem 'jbuilder',     '~> 2.5'
+gem 'jquery-rails'
 gem 'pg',          '~> 0.18'
 gem 'puma',        '~> 3.7'
 gem 'rails',       '~> 5.1.4'
 gem 'sass-rails',  '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-
-gem 'coffee-rails', '~> 4.2'
-
 gem 'turbolinks',   '~> 5'
-
-gem 'jbuilder',     '~> 2.5'
+gem 'uglifier', '>= 1.3.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
 gem 'bcrypt',       '~> 3.1.7'
 gem 'rails-html-sanitizer'
 gem 'rubocop',      '~> 0.51.0'
