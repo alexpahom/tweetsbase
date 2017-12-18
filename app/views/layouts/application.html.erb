@@ -11,9 +11,7 @@
 
   <body>
 
-  <% if flash[:notice] %>
-    <div id="notice"><%= flash[:notice] %></div>
-  <% end %>
+
   <div id="main-container" class="container">
     <div class="row">
       <div class="col-xs-2 navbar">
@@ -25,6 +23,7 @@
           <i>lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor</i>
         </div>
         <div id="header_under"></div>
+          <%= render 'shared/errors' %>
         <%= yield %>
       </div>
     </div>
