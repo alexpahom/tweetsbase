@@ -35,7 +35,7 @@ class UserControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'Creation page is reachable' do
-    get users_new_path
+    get new_user_path
     assert_response :success
   end
 
