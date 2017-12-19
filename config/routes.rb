@@ -10,5 +10,13 @@ Rails.application.routes.draw do
   # delete '/users/:id'     => 'users#destroy'
 
   root 'users#index'
-  resources :users
+  resources :users do
+    get '/messages'           => 'messages#index'
+    get '/messages/new'       => 'messages#new'
+    get '/messages/:id/edit'  => 'messages#edit'
+    get '/messages/:id'       => 'messages#show'
+    post '/messages'          => 'messages#create'
+    patch '/messages/:id'     => 'messages#update'
+    delete '/messages/:id'    => 'messages#destroy'
+  end
 end
