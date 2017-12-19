@@ -18,7 +18,8 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to(users_path, notice: 'Everything worked out!')
     else
-      redirect_to(users_new_path, alert: 'Username / Email should be unique. All the fields should be populated')
+      redirect_to(users_new_path,
+                  alert: 'Username / Email should be unique. All the fields should be populated')
     end
   end
 
@@ -32,7 +33,11 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to(users_path, notice: 'Deleted.')
+
+    respond_to do |format|
+      format.html { redirect_to(users_path, notice: 'Deleted.') }
+      format.js
+    end
   end
 
   def fetch_user
