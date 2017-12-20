@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_filter :fetch_user
+  before_action :fetch_user
 
   def fetch_user
     @user = User.find(params[:user_id])
