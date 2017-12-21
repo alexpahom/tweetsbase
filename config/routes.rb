@@ -11,12 +11,13 @@ Rails.application.routes.draw do
 
   root 'users#index'
   resources :users do
-    get '/messages'           => 'messages#index'
-    get '/messages/new'       => 'messages#new'
-    get '/messages/:id/edit'  => 'messages#edit'
-    get '/messages/:id'       => 'messages#show'
-    post '/messages'          => 'messages#create'
-    patch '/messages/:id'     => 'messages#update'
-    delete '/messages/:id'    => 'messages#destroy'
+    resources :messages
+    # get '/messages'           => 'messages#index'
+    # get '/messages/new'       => 'messages#new'
+    # get '/messages/:id/edit'  => 'messages#edit'
+    # get '/messages/:id'       => 'messages#show'
+    # post '/messages'          => 'messages#create'
+    # patch '/messages/:id'     => 'messages#update'
+    # delete '/messages/:id'    => 'messages#destroy'
   end
 end

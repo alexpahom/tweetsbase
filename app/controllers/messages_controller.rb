@@ -13,4 +13,7 @@ class MessagesController < ApplicationController
     @message = @user.messages.find(params[:id])
   end
 
+  def edit
+    @message = @user.messages.find(params[:id])
+  end
 end
