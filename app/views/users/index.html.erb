@@ -1,7 +1,7 @@
-<h1 class="title">All Users</h1>
-<div class="table-responsive">
-  <table class="table table-striped table-hover">
-    <tr class="active">
+<h1>All Users</h1>
+<div>
+  <table>
+    <tr>
     <th>User name</th>
     <th>First name</th>
     <th>Last name</th>
@@ -9,18 +9,17 @@
     <th></th>
   </tr>
   <% @users.each do |user| %>
-  <tr id=<%= "user_#{user.id}" %> >
+  <tr>
     <td><%= link_to user.username, user_path(user) %></td>
     <td><%= user.first_name %></td>
     <td><%= user.last_name %></td>
     <td><%= user.email %></td>
-    <td class="action-table"><%= link_to 'Update', edit_user_path(user), class: 'btn btn-default' %>
-      <%= link_to 'X', user, method: :delete, data: { confirm: 'Sure?' },
-                  class: 'btn btn-default', remote: true %></td>
+    <td><%= link_to 'Update', edit_user_path(user) %>
+      <%= link_to 'X', user, method: :delete, data: { confirm: 'Sure?' }, remote: true %></td>
   </tr>
   <% end %>
 </table>
   <em><%= 'No users found' if @users.size == 0 %></em><br>
-<%= link_to 'Create User', new_user_path, class: 'btn btn-default btn-primary' %>
+<%= link_to 'Create User', new_user_path %>
 
 </div>

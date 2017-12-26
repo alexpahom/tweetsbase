@@ -1,5 +1,5 @@
 <% @messages.each do |message| %>
-  <div class="message-box">
+  <div>
     <%= content_tag(:p, message.content, class: 'content') %>
     <%= content_tag(:p, "Created at #{message.created_at}", class: 'timing') %>
     <% if current_page?(controller: 'messages', action: 'recent') || current_page?(messages_path) %>

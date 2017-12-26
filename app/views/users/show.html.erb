@@ -1,6 +1,6 @@
-<h1 class="title">User: <%= @user.username %></h1>
-<div class="table-responsive">
-  <table class="table table-striped">
+<h1>User: <%= @user.username %></h1>
+<div>
+  <table>
     <tr>
       <td>First name</td>
       <td><%= @user.first_name %></td>
@@ -18,8 +18,8 @@
       <td><%= @user.phone %></td>
     </tr>
   </table>
-    <div class="actions">
-<%= link_to 'Update', edit_user_path(@user), class: 'btn btn-default btn-primary' %>
-<%= link_to 'Cancel', users_path, class: 'btn btn-default' %>
+    <div>
+<%= link_to 'Update', edit_user_path(@user) %>
+<%= link_to 'Cancel', users_path %>
     </div>
 </div>
