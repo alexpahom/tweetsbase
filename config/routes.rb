@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   # patch '/users/:id'      => 'users#update'
   # delete '/users/:id'     => 'users#destroy'
 
-  root 'users#index'
+  root 'messages#recent'
+  get '/messages'           => 'messages#recent'
   resources :users do
     resources :messages
     # get '/messages'           => 'messages#index'

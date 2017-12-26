@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :fetch_user
+  before_action :fetch_user, except: :recent
   before_action :fetch_message, only: %i(show edit update destroy)
 
   def fetch_user
@@ -37,6 +37,10 @@ class MessagesController < ApplicationController
     else
       redirect_to(edit_user_message_path, alert: 'Specify the text')
     end
+  end
+
+  def recent
+    @messages = Message.all.order(updated_at: :desc).limit(10)
   end
 
   private

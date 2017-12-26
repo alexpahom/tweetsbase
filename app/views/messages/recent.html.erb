@@ -1,0 +1,9 @@
+<h1 class="title">Recent Messages</h1>
+
+<div class="message-box">
+  <% @messages.each do |message| %>
+    <p class="container"><%= message.content %></p>
+    <p class="container"><%= message.updated_at %></p>
+    <p class="container">By <%= message.user.username %></p>
+  <% end %>
+</div>
