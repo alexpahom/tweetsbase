@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to(users_path, notice: 'Everything worked out!')
     else
-      redirect_to(users_new_path,
+      redirect_to(new_user_path,
                   alert: 'Username / Email should be unique. All the fields should be populated')
     end
   end

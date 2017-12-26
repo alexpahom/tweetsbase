@@ -1,0 +1,6 @@
+<%= bootstrap_form_for([@user,@message]) do |m| %>
+  <%= m.text_area :content %>
+  <%= m.submit %>
+  <%= link_to 'Back', user_messages_path(@user) %>
+  <%= link_to 'Delete', @user[m], data: { confirm: 'Sure?' } %>
+<% end %>

@@ -11,6 +11,7 @@ gem 'bootstrap_form'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder',     '~> 2.5'
 gem 'jquery-rails'
+# gem 'nested_form'
 gem 'pg',          '~> 0.18'
 gem 'puma',        '~> 3.7'
 gem 'rails',       '~> 5.1.4'
@@ -20,8 +21,8 @@ gem 'uglifier', '>= 1.3.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 gem 'bcrypt',       '~> 3.1.7'
-gem 'rails-html-sanitizer'
 gem 'rails-controller-testing'
+gem 'rails-html-sanitizer'
 gem 'rubocop',      '~> 0.51.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

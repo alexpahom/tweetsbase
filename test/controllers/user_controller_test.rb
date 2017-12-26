@@ -24,10 +24,10 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'Home is reachable' do
-    get root_path
-    assert_response :success
-  end
+  # test 'Home is reachable' do
+  #   get root_path
+  #   assert_response :success
+  # end
 
   test 'Users are reachable' do
     get users_path
@@ -35,7 +35,7 @@ class UserControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'Creation page is reachable' do
-    get users_new_path
+    get new_user_path
     assert_response :success
   end
 

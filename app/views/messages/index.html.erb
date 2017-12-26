@@ -1,0 +1,7 @@
+<h1 class="title"><%= @user.username %></h1>
+<%= link_to 'Create a post', new_user_message_path %>
+<%= link_to 'Back', users_path %>
+<div>
+  <%= render 'message_show' %>
+
+</div>
