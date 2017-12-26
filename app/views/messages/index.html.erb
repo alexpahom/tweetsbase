@@ -2,13 +2,6 @@
 <%= link_to 'Create a post', new_user_message_path %>
 <%= link_to 'Back', users_path %>
 <div>
-  <% @messages.each do |message| %>
-    <div class="message-box">
-      <p class="content"><%= message.content %></p><br>
-      <p class="details"><%= link_to 'Show more', user_message_path(@user, message) %></p>
-      <p class="timing">Created at: <%= message.created_at %></p>
-      <%= link_to 'Update', edit_user_message_path(@user, message) %>
-      <%= link_to 'Delete', @user[message], method: :delete, data: { confirm: 'Sure?' } %>
-    </div>
-  <% end %>
+  <%= render 'message_show' %>
+
 </div>
