@@ -23,11 +23,11 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create(message_params)
+    @message = @user.messages.create(message_params)
     if @message.save
       redirect_to(user_messages_path, notice: 'Post created.')
     else
-      redirect_to(new_user_message_path, alert: 'Do not forget to specify the text')
+      redirect_to(new_user_message_path, alert: @message.errors.full_messages.to_sentence)
     end
   end
 
