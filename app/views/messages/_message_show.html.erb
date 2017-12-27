@@ -1,12 +1,14 @@
 <% @messages.each do |message| %>
-  <div>
+  <div class="message-box">
     <%= content_tag(:p, message.content, class: 'content') %>
-    <%= content_tag(:p, "Created at #{message.created_at}", class: 'timing') %>
+    <%= content_tag(:p, "Created at #{message.created_at.to_formatted_s(:short)}", class: 'timing') %>
     <% if current_page?(controller: 'messages', action: 'recent') || current_page?(messages_path) %>
-      <%= content_tag(:p, "By #{message.user.username}", class: 'author') %>
+      <%= content_tag(:p, (link_to "By #{message.user.username}", user_messages_path(message.user)), class: 'author') %>
     <% else %>
+      <div class="actions">
       <%= link_to 'Update', edit_user_message_path(@user, message) %>
       <%= link_to 'Delete', @user[message], method: :delete, data: { confirm: 'Sure?' } %>
+      </div>
     <% end %>
   </div>
 <% end %>

@@ -12,14 +12,14 @@
   <body>
 
 
-  <div>
-    <div>
-      <div>
+  <div id="main-container" class="container">
+    <div class="row">
+      <div id="sidebar" class="col-xs-2">
         <%= image_tag('logo.png') %>
       </div>
-      <div>
-        <div>
-          <h1><b>LOREM IPSUM</b></h1>
+      <div id="content" class="col-xs-8">
+        <div class="header">
+          <h1 class="title"><b>LOREM IPSUM</b></h1>
           <i>lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor</i>
         </div>
           <%= render 'shared/errors' %>

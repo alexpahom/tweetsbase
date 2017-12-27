@@ -1,25 +1,14 @@
-<h1>All Users</h1>
+<h1 class="title">All Users</h1>
 <div>
-  <table>
-    <tr>
-    <th>User name</th>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Email</th>
-    <th></th>
-  </tr>
-  <% @users.each do |user| %>
-  <tr>
-    <td><%= link_to user.username, user_path(user) %></td>
-    <td><%= user.first_name %></td>
-    <td><%= user.last_name %></td>
-    <td><%= user.email %></td>
-    <td><%= link_to 'Update', edit_user_path(user) %>
-      <%= link_to 'X', user, method: :delete, data: { confirm: 'Sure?' }, remote: true %></td>
-  </tr>
-  <% end %>
-</table>
-  <em><%= 'No users found' if @users.size == 0 %></em><br>
-<%= link_to 'Create User', new_user_path %>
 
+<%= table_for @users, table_html: { class: 'table table-hover' } do |t| %>
+  <%= t.column :username, header: 'Username', link_url: lambda { |user| user_messages_path(user) } %>
+  <%= t.column :first_name, header: 'First name' %>
+  <%= t.column :last_name, header: 'Last name' %>
+  <%= t.column :email, header: 'Email' %>
+  <%= t.column data: 'Edit', link_action: :edit %>
+  <%= t.column data: 'Delete', link_method: :delete, link_confirm: 'Sure?', remote: true %>
+<% end %>
+  <%= link_to 'Create User', new_user_path, class: 'btn btn-primary' %>
+  <em><%= 'No users found' if @users.size == 0 %></em>
 </div>
