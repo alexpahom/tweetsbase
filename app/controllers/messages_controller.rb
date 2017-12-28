@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
   end
 
   def index
-    @messages = @user.messages.all
+    @messages = @user.messages.all.order(updated_at: :desc)
   end
 
   def show; end
@@ -35,7 +35,7 @@ class MessagesController < ApplicationController
     if @message.update_attributes(message_params)
       redirect_to(user_message_path, notice: 'Post updated.')
     else
-      redirect_to(edit_user_message_path, alert: 'Specify the text')
+      redirect_to(edit_user_message_path, alert: @message.errors.full_messages.to_sentence)
     end
   end
 

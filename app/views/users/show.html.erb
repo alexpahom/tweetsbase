@@ -1,25 +1,25 @@
 <h1 class="title">User: <%= @user.username %></h1>
-<div class="table-responsive">
-  <table class="table table-striped">
+<div class="field">
+  <table class="table table-bordered">
     <tr>
-      <td>First name</td>
+      <td class="name">First name</td>
       <td><%= @user.first_name %></td>
     </tr>
     <tr>
-      <td>Last name</td>
+      <td class="name">Last name</td>
       <td><%= @user.last_name %></td>
     </tr>
     <tr>
-      <td>Email address</td>
+      <td class="name">Email address</td>
       <td><%= @user.email %></td>
     </tr>
     <tr>
-      <td>Phone number</td>
+      <td class="name">Phone number</td>
       <td><%= @user.phone %></td>
     </tr>
   </table>
-    <div class="actions">
-<%= link_to 'Update', edit_user_path(@user), class: 'btn btn-default btn-primary' %>
+    <div>
+<%= link_to 'Update', edit_user_path(@user), class: 'btn btn-primary' %>
 <%= link_to 'Cancel', users_path, class: 'btn btn-default' %>
     </div>
 </div>

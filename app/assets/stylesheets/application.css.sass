@@ -20,57 +20,95 @@
 @import "bootstrap"
 @import "rails_bootstrap_forms"
 
+$shadow-preset: 0 1px 4px rgba(0,0,0,0.3), -23px 0 20px -23px rgba(0,0,0,.8), 23px 0 20px -23px rgba(0,0,0,.8), 0 0 40px rgba(0,0,0,.1) inset
 body
-    background-image: url("graphy_@2X.png")
-    font-family: 'Open Sans', sans-serif
+  font-family: 'Open Sans', sans-serif
+  background-image: url('graphy_@2X.png')
 
-img
-    width: 135px
-    margin: 0 auto
-    display: block
+// for dates and times
+.timing
+  font-style: italic
+  position: absolute
+  bottom: 0
+  left: 0
+  margin: 0 10px 0 0
+  padding: 5px
 
-.col-xs-9
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15)
-    margin: 10px 100px
-    padding-bottom: 40px
+// for the messages
+.message-box
+  background-color: #fff
+  padding: 8px
+  margin: 10px
+  box-shadow: $shadow-preset
+  position: relative
+  min-height: 70px
 
-.navbar
-    background-color: rgb(43,43,43)
-    min-height: 900px
-    min-width: 160px
-    width: 200px
-
-.header
-    height: 80px
-    text-align: right
-    font-family: 'Russo One', sans-serif
-
-#header_under
-    background-color: rgb(226,226,226)
-    height: 12px
-
-.container
-    width: auto
+.actions, .author
+  position: absolute
+  bottom: 0
+  right: 0
+  padding: 5px
+  margin: 0 10px 0 0
 
 
-.btn-default
-    font-family: 'Open Sans', sans-serif
-    font-weight: bold
-
-.btn-primary
-    background-color: chocolate
-
+// for the titles
 .title
-    font-family: 'Russo One', sans-serif
+  font-family: 'Russo One', sans-serif
+  background-color: white
+  display: inline-block
+  padding: 0 15px
+  margin: 10px 10px 0 0
+  border-radius: 20px 20px 0 0
+  box-shadow: $shadow-preset
+
+#title
+  font-family: 'Russo One', sans-serif
+
+// for the text of a message
+.content
+  padding-bottom: 15px
+
+// for the header
+.header
+  text-align: right
+
+// for the footer
+// .footer
+
+#main-container
+  margin: 0 150px
+
+#sidebar
+  background-color: #2E2F30
+  text-align: center
+  height: 100%
+  font-family: 'Ubuntu', sans-serif
+  font-weight: bold
+  a
+    color: #ffffff
+  a:hover
+    color: black
+
+#menu
+  margin-top: 70px
+
+#content
+  padding: 0 40px
+
+.form-control
+  min-width: 250px
+  max-width: 500px
 
 .alert-warning
-    background-color: rgba(249,210,213,0.4)
+  background-color: rgba(255, 140, 137, 0.4)
 
 .alert-info
-    background-color: rgba(136,188,136,0.4)
+  background-color: rgba(173, 255, 141, 0.4)
 
+.name
+  font-weight: bold
 
-.message-box
-    background-color: #eeeeee
-    padding: 10px
-    margin: 10px
+.field
+  background-color: white
+  box-shadow: $shadow-preset
+  padding: 20px
