@@ -5,5 +5,10 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
+  def verify_redirects
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+  end
   # Add more helper methods to be used by all tests here...
 end

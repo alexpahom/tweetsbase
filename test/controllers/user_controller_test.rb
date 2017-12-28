@@ -18,17 +18,6 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     }
   end
 
-  def verify_redirects
-    assert_response :redirect
-    follow_redirect!
-    assert_response :success
-  end
-
-  # test 'Home is reachable' do
-  #   get root_path
-  #   assert_response :success
-  # end
-
   test 'Users are reachable' do
     get users_path
     assert_response :success
