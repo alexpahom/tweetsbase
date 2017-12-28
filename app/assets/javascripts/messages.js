@@ -2,7 +2,7 @@
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready(function(e) {
+$(document).on('turbolinks:load', function(e) {
     $('.timing').hover(function(){
         $old_text = $(this).text();
         $(this).text($(this).attr('data_date'));
