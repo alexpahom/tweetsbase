@@ -1,9 +1,15 @@
 <h1 class="title"><%= @user.username %></h1>
 <div>
-  <p><%= @message.content %></p>
-  <p>Created <%= @message.created_at %></p>
-  <p>Last modified <%= @message.updated_at %></p>
-  <%= link_to 'Update', edit_user_message_path(@user, @message) %>
-  <%= link_to 'Back', user_messages_path(@user) %>
-  <%= link_to 'Delete', @user[@message], method: :delete, data: { confirm: 'Sure?' } %>
+  <div class="message-box">
+    <p class="content"><%= @message.content %></p>
+    <!--<p class="timing">Created <%= @message.created_at.to_formatted_s(:long) %></p>-->
+    <!--<p class="timing">Last modified <%= @message.updated_at.to_formatted_s(:long) %></p>-->
+    <%= content_tag(:p, "Last modified #{@message.updated_at.to_formatted_s(:long)}",
+                    class: 'timing', data_date: "Created at #{@message.created_at.to_formatted_s(:long)}") %>
+    <div class="actions">
+      <%= link_to 'Update', edit_user_message_path(@user, @message) %>
+      <%= link_to 'Back', user_messages_path(@user) %>
+      <%= link_to 'Delete', @user[@message], method: :delete, data: { confirm: 'Sure?' } %>
+    </div>
+  </div>
 </div>

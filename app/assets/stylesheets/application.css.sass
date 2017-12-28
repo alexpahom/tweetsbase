@@ -20,6 +20,7 @@
 @import "bootstrap"
 @import "rails_bootstrap_forms"
 
+$shadow-preset: 0 1px 4px rgba(0,0,0,0.3), -23px 0 20px -23px rgba(0,0,0,.8), 23px 0 20px -23px rgba(0,0,0,.8), 0 0 40px rgba(0,0,0,.1) inset
 body
   font-family: 'Open Sans', sans-serif
   background-image: url('graphy_@2X.png')
@@ -38,7 +39,7 @@ body
   background-color: #fff
   padding: 8px
   margin: 10px
-  box-shadow: 0 1px 4px rgba(0,0,0,0.3), -23px 0 20px -23px rgba(0,0,0,.8), 23px 0 20px -23px rgba(0,0,0,.8), 0 0 40px rgba(0,0,0,.1) inset
+  box-shadow: $shadow-preset
   position: relative
   min-height: 70px
 
@@ -56,6 +57,7 @@ body
 // for the text of a message
 .content
   padding-bottom: 15px
+
 // for the header
 .header
   text-align: right
@@ -70,6 +72,15 @@ body
   background-color: #2E2F30
   text-align: center
   height: 100%
+  font-family: 'Ubuntu', sans-serif
+  font-weight: bold
+  a
+    color: #ffffff
+  a:hover
+    color: black
+
+#menu
+  margin-top: 70px
 
 #content
   padding: 0 40px
@@ -87,3 +98,7 @@ body
 .name
   font-weight: bold
 
+.field
+  background-color: white
+  box-shadow: $shadow-preset
+  padding: 20px
