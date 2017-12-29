@@ -59,6 +59,8 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     user = User.first
     delete user_path(user)
     verify_redirects
+    assert_not_equal user, User.first
+    assert_raise(Exception) { Message.find(user.id) }
   end
 
   test 'Placeholder text for no users' do
