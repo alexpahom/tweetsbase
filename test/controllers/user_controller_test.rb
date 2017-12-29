@@ -18,17 +18,6 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     }
   end
 
-  def verify_redirects
-    assert_response :redirect
-    follow_redirect!
-    assert_response :success
-  end
-
-  # test 'Home is reachable' do
-  #   get root_path
-  #   assert_response :success
-  # end
-
   test 'Users are reachable' do
     get users_path
     assert_response :success
@@ -70,5 +59,13 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     user = User.first
     delete user_path(user)
     verify_redirects
+    assert_not_equal user, User.first
+    assert_raise(Exception) { Message.find(user.id) }
+  end
+
+  test 'Placeholder text for no users' do
+    User.destroy_all
+    get users_path
+    assert_select 'em', 'No users found'
   end
 end

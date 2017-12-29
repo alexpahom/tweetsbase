@@ -10,5 +10,5 @@
   <%= t.column data: 'Delete', link_method: :delete, link_confirm: 'Sure?', remote: true %>
 <% end %>
   <%= link_to 'Create User', new_user_path, class: 'btn btn-primary' %>
-  <em><%= 'No users found' if @users.size == 0 %></em>
+  <%= content_tag(:em, 'No users found') if @users.size == 0 %>
 </div>
