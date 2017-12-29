@@ -60,4 +60,10 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     delete user_path(user)
     verify_redirects
   end
+
+  test 'Placeholder text for no users' do
+    User.destroy_all
+    get users_path
+    assert_select 'em', 'No users found'
+  end
 end

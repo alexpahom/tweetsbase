@@ -2,5 +2,6 @@
   <%= m.text_area :content %>
   <%= m.primary %>
   <%= link_to 'Back', user_messages_path(@user), class: 'btn btn-default' %>
-  <%= link_to 'Delete', @user[m], data: { confirm: 'Sure?' }, class: 'btn btn-default' unless @message.new_record? %>
+  <%= link_to 'Delete', ([@user,@message]), method: :delete, data: { confirm: 'Sure?' },
+              class: 'btn btn-default' unless @message.new_record? %>
 <% end %>

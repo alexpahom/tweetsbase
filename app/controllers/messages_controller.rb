@@ -43,6 +43,15 @@ class MessagesController < ApplicationController
     @messages = Message.all.order(updated_at: :desc).limit(10)
   end
 
+  def destroy
+    @message.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(user_messages_path(@user), notice: 'Deleted.') }
+      format.js
+    end
+  end
+
   private
 
   def message_params
