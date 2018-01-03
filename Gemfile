@@ -21,7 +21,6 @@ gem 'uglifier',              '>= 1.3.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 gem 'bcrypt',                '~> 3.1.7'
-gem 'rails-controller-testing'
 gem 'rails-html-sanitizer'
 gem 'rubocop',               '~> 0.51.0'
 gem 'table-for'

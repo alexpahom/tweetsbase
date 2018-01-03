@@ -90,4 +90,8 @@ class UserTest < ActiveSupport::TestCase
     user.email.upcase
     assert_not user.valid?
   end
+
+  # test 'User should have the password' do
+  # test 'Unable to create user if password and its confirmation are not equal' do
+  # test 'Password should not be short' do
 end

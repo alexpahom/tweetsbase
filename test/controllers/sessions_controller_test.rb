@@ -2,7 +2,10 @@ require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
 
-  # test 'Login is reachable'
+  test 'Login is reachable' do
+    get login_path
+    assert_response :success
+  end
   # test 'Signup is reachable'
   # test 'Forget is reachable'
   # test 'User can log in'

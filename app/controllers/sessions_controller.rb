@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: params[:session][:username].downcase)
+    user = User.find_by(username: params[:session][:username])
     if user&.authenticate(params[:session][:password])
       log_in user
       redirect_to messages_path, notice: 'Logged in'

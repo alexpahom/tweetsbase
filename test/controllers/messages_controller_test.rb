@@ -8,25 +8,28 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
 
   # messages#recent (GET messages)
   test 'Recent messages are reachable' do
+    login :one
     get messages_path
     assert_response :success
   end
 
   # messages#new
   test 'Message creation page is reachable' do
+    login :two
     get new_user_message_path(User.find(20))
     assert_response :success
   end
 
   # messages#create
   test 'User is able to create a message' do
+    login :one
     post user_messages_url(User.find(10)), params: { message: @params }
-    assert assigns(:message).valid?
     verify_redirects
   end
 
   # message#update
   test 'User is able to update a message' do
+    login :two
     user = User.find(20)
     message = user.messages.first
     old_post = message.content
@@ -37,6 +40,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
 
   # messages#edit
   test 'edit message is reachable' do
+    login :one
     user = User.first
     get edit_user_message_path(user, user.messages.first)
     assert_response :success
@@ -44,6 +48,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
 
   # messages#show
   test 'Show message is reachable' do
+    login :one
     user = User.first
     get user_message_path(user, user.messages.first)
     assert_response :success
@@ -51,30 +56,20 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
 
   # messages#index
   test 'Index page is reachable' do
+    login :one
     get user_messages_path(User.first)
     assert_response :success
   end
 
   # messages#destroy
   test 'User can delete a message' do
+    login :two
     user = User.find(20)
     message = user.messages.first
-    delete user_message_path(user, message)
+    assert_difference 'Message.count', -1, 'Message was not deleted' do
+      delete user_message_path(user, message)
+    end
     assert user.present?
-    assert_not_equal message, user.messages.first, 'Message was not deleted'
     verify_redirects
-  end
-
-  test 'Plaseholder for no messages on users page' do
-    user = User.first
-    user.messages.destroy_all
-    get user_messages_path(user)
-    assert_select 'em', 'No messages yet. Go ahead and post!'
-  end
-
-  test 'Placeholder for no messages on recent page' do
-    Message.destroy_all
-    get root_path
-    assert_select 'em', 'No messages yet. Go ahead and post!'
   end
 end
