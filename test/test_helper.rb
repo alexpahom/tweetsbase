@@ -5,8 +5,8 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
-  def verify_redirects
-    assert_response :redirect
+  def verify_redirects(path = nil)
+    assert_response :redirect, "#{path} did not redirect"
     follow_redirect!
     assert_response :success
   end
