@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :fetch_user, only: %i(show edit update destroy)
+  skip_before_action :require_user, only: %i(new create)
 
   def index
     @users = User.all

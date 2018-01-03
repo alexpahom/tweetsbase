@@ -8,6 +8,9 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   # test 'User can log in'
   # test 'User can log out'
   # test 'User cannot login with invalid creds'
+  # test 'User is being logged in automatically after signup'
+  # test 'User can sign up not being logged in'
+  # test 'User can log in not being logged in'
   # test 'If user is logged in /login is unreachable'
   # test 'If user is not logged in, he is taken to login'
   # test 'User A cannot edit B's profile
