@@ -18,7 +18,6 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test 'Forget is reachable'
   test 'User can log in' do
     login :one
     assert logged_in?
@@ -69,6 +68,8 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
       assert_equal '/login', request.fullpath
     end
   end
+
+  # test 'Forget is reachable'
   # test 'User A cannot edit B's profile
   # test 'User A cannot edit B's message
   # test 'User A cannot delete B's message
