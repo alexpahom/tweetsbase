@@ -7,7 +7,8 @@ class UserTest < ActiveSupport::TestCase
       first_name: 'Stan',
       last_name: 'Kubrik',
       email: 'admin@example.com',
-      phone: '8-033-100-201-223'
+      phone: '8-033-100-201-223',
+      password: 'password'
     )
   end
 
@@ -91,7 +92,13 @@ class UserTest < ActiveSupport::TestCase
     assert_not user.valid?
   end
 
-  # test 'User should have the password' do
-  # test 'Unable to create user if password and its confirmation are not equal' do
-  # test 'Password should not be short' do
+  test 'User should have the password' do
+    @user.password_digest = ''
+    assert_not @user.valid?
+  end
+
+  test 'Password should not be short' do
+    @user.password = 'pass'
+    assert_not @user.valid?
+  end
 end
