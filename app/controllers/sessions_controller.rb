@@ -1,0 +1,20 @@
+class SessionsController < ApplicationController
+  def new
+    redirect_to messages_path, alert: 'You are already logged in' if logged?
+  end
+
+  def create
+    user = User.find_by(username: params[:session][:username].downcase)
+    if user&.authenticate(params[:session][:password])
+      log_in user
+      redirect_to messages_path, notice: 'Logged in'
+    else
+      redirect_to root_path, alert: 'Invalid username or password'
+    end
+  end
+
+  def destroy
+    log_out
+    redirect_to root_path, notice: 'Logged out'
+  end
+end

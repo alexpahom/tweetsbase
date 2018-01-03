@@ -6,12 +6,6 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
     @params = { 'content' => 'Let me put you on hold' }
   end
 
-  # messages#recent (ROOT)
-  test 'Home is reachable' do
-    get root_path
-    assert_response :success
-  end
-
   # messages#recent (GET messages)
   test 'Recent messages are reachable' do
     get messages_path
