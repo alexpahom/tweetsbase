@@ -21,6 +21,7 @@
 @import "rails_bootstrap_forms"
 
 $shadow-preset: 0 1px 4px rgba(0,0,0,0.3), -23px 0 20px -23px rgba(0,0,0,.8), 23px 0 20px -23px rgba(0,0,0,.8), 0 0 40px rgba(0,0,0,.1) inset
+$button-preset: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
 body
   font-family: 'Open Sans', sans-serif
   background-image: url('graphy_@2X.png')
@@ -84,13 +85,6 @@ body
   height: 100%
   font-family: 'Ubuntu', sans-serif
   font-weight: bold
-  a
-    color: #ffffff
-  a:hover
-    color: black
-
-#menu
-  margin-top: 70px
 
 #content
   padding: 0 40px
@@ -115,3 +109,26 @@ body
 
 #flash
   height: 52px
+
+
+.dropdown-menu
+  li a:hover
+    color: white
+    background-color: #2E2F30
+
+.dropdown-toggle
+  padding-bottom: 200px
+
+.menu
+  margin-top: 70px
+  a
+    color: white
+  a:hover
+    color: black
+
+.btn:hover
+  box-shadow: $button-preset
+
+.btn-primary
+  border: 0
+  background-color: chocolate

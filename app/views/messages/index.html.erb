@@ -1,6 +1,10 @@
 <h1 class="title"><%= @user.username %></h1>
 
 <div class="field">
+  <% if @messages.size == 0 %>
+    <%= content_tag(:em, 'No messages yet. Go ahead and post!') %><br>
+  <% end %>
+
   <%= link_to 'Create a post', new_user_message_path, class: 'btn btn-primary' %>
   <%= link_to 'Back', users_path, class: 'btn btn-default' %>
   <%= render 'message_show' %>
