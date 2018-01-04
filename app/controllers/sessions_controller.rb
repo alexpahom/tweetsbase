@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login, only: %i(new create)
+  skip_before_action :require_permission
 
   def new
     redirect_to messages_path, alert: 'You are already logged in' if logged?

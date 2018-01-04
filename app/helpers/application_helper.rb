@@ -16,12 +16,6 @@ module ApplicationHelper
     # current_user.role == 'master'
   end
 
-  def require_permission
-    unless current_user.id == params[:user_id]
-      redirect_back(fallback_location: root_path, alert: 'I bet you\'re not allowed to')
-    end
-  end
-
   def require_login
     redirect_to login_path, alert: 'Log in to proceed' unless current_user
   end

@@ -54,7 +54,7 @@ class UserControllerTest < ActionDispatch::IntegrationTest
 
   test 'Update is reachable' do
     login :one
-    get edit_user_path(User.first)
+    get edit_user_path(User.find(10))
     assert_response :success
   end
 

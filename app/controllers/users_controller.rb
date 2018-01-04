@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+  include UsersHelper
   before_action :fetch_user, only: %i(show edit update destroy)
+  before_action :push_if_logged, only: %i(new create)
   skip_before_action :require_login, only: %i(new create)
-  skip_before_action :require_permission, only: %i(index show)
+  skip_before_action :require_permission, only: %i(index show new create)
 
   def index
     @users = User.all
