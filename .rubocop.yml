@@ -27,7 +27,7 @@ MultilineMethodCallIndentation:
   Enabled: false
 PercentLiteralDelimiters:
   PreferredDelimiters:
-    '%i': '()'
+    '%i': '[]'
     '%w': '()'
 Style/ClassAndModuleChildren:
   Enabled: false
