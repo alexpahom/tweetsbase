@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   skip_before_action :require_permission
 
   def new
-    redirect_to messages_path, alert: 'You are already logged in' if logged?
+    redirect_to messages_path if logged?
   end
 
   def create

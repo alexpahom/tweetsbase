@@ -20,12 +20,11 @@
           <h1 id="title"><b>LOREM IPSUM</b></h1>
           <i>lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor</i>
         </div>
+        <div id="flash">
           <%= render 'shared/errors' %>
-        <%= yield %>
-        <% if Rails.env.development? %>
-          <%= debug(params) %>
-          <% console %>
-        <% end %>
+        </div>
+          <%= yield %>
+        <% console if Rails.env.development? %>
         <div class="footer">
 
         </div>

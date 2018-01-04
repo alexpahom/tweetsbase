@@ -10,7 +10,7 @@
 
     <%= f.form_group do %>
       <%= f.primary %>
-      <%= link_to 'Go Back', users_path, class: 'btn btn-default' %>
+      <%= link_to 'Go Back', login_path, class: 'btn btn-default' %>
       <%= link_to 'Delete', @user, method: :delete,
                   data: { confirm: 'Sure?' }, class: 'btn btn-default' unless @user.new_record? %>
     <% end %>
