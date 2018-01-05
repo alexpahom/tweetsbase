@@ -13,6 +13,7 @@ module ApplicationHelper
   end
 
   def admin?
+    false
     # current_user.role == 'master'
   end
 
