@@ -70,8 +70,4 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   # test 'Forget is reachable'
-  # test 'User A cannot edit B's profile
-  # test 'User A cannot edit B's message
-  # test 'User A cannot delete B's message
-  # test 'User A cannot create a message as B'
 end
