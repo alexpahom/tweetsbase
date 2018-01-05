@@ -8,13 +8,8 @@ module ApplicationHelper
     }[flash_type.to_sym] || flash_type.to_s
   end
 
-  def owner?(text)
-    current_user.id == text.user_id
-  end
-
   def admin?
-    false
-    # current_user.role == 'master'
+    current_user.role == 'master'
   end
 
   def require_login

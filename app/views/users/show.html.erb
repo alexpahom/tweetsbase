@@ -19,7 +19,9 @@
     </tr>
   </table>
     <div>
-<%= link_to 'Update', edit_user_path(@user), class: 'btn btn-primary' %>
-<%= link_to 'Cancel', users_path, class: 'btn btn-default' %>
+      <% if admin? || my_user?(@user) %>
+        <%= link_to 'Update', edit_user_path(@user), class: 'btn btn-primary' %>
+      <% end %>
+<%= link_to 'Go Back', users_path, class: 'btn btn-default' %>
     </div>
 </div>
