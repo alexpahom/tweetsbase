@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  include MessagesHelper
   before_action :fetch_user, except: :recent
   before_action :fetch_message, only: %i(show edit update destroy)
   skip_before_action :require_permission, only: %i(index show recent)

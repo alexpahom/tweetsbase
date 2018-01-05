@@ -5,7 +5,10 @@
     <%= content_tag(:em, 'No messages yet. Go ahead and post!') %><br>
   <% end %>
 
-  <%= link_to 'Create a post', new_user_message_path, class: 'btn btn-primary' %>
+  <% if admin? || my_user?(@user) %>
+    <%= link_to 'Create a post', new_user_message_path, class: 'btn btn-primary' %>
+  <% end %>
+
   <%= link_to 'Back', users_path, class: 'btn btn-default' %>
   <%= render 'message_show' %>
 </div>

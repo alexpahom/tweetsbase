@@ -6,10 +6,14 @@
   <%= t.column :first_name, header: 'First name' %>
   <%= t.column :last_name, header: 'Last name' %>
   <%= t.column :email, header: 'Email' %>
-  <%= t.column data: 'Edit', link_action: :edit, data_column_html: { class: 'action' } %>
-  <%= t.column data: 'Delete', link_method: :delete, link_confirm: 'Sure?',
+    <% if admin? %>
+      <%= t.column data: 'Edit', link_action: :edit, data_column_html: { class: 'action' } %>
+      <%= t.column data: 'Delete', link_method: :delete, link_confirm: 'Sure?',
                remote: true, data_column_html: { class: 'action' } %>
+    <% end %>
 <% end %>
   <%= content_tag(:em, 'No users found') if @users.size == 0 %>
-  <%= link_to 'Create User', new_user_path, class: 'btn btn-primary' %>
+  <% if admin? %>
+    <%= link_to 'Create User', new_user_path, class: 'btn btn-primary' %>
+  <% end %>
 </div>

@@ -7,8 +7,10 @@
       <%= content_tag(:p, (link_to "By #{message.user.username}", user_messages_path(message.user)), class: 'author') %>
     <% else %>
       <div class="actions">
-        <%= link_to 'Update', edit_user_message_path(@user, message) %>
-        <%= link_to 'Delete', ([@user,message]), method: :delete, data: { confirm: 'Sure?' } %>
+        <% if admin? || owner?(message) %>
+          <%= link_to 'Update', edit_user_message_path(@user, message) %>
+          <%= link_to 'Delete', ([@user,message]), method: :delete, data: { confirm: 'Sure?' } %>
+        <% end %>
       </div>
     <% end %>
   </div>
