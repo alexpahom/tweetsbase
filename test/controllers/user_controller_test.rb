@@ -72,4 +72,11 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     end
     verify_redirects
   end
+
+  test 'User A cannot edit B\'s profile' do
+    login :one
+    second = users(:two)
+    patch user_path(second), params: { user: @params }
+    assert_not second.valid?
+  end
 end
