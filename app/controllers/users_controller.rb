@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
+  include UsersHelper
   before_action :fetch_user, only: %i(show edit update destroy)
+  before_action :push_if_logged, only: %i(new create)
+  skip_before_action :require_login, only: %i(new create)
+  skip_before_action :require_permission, only: %i(index show new create)
 
   def index
     @users = User.all
@@ -14,12 +18,13 @@ class UsersController < ApplicationController
   def edit; end
 
   def create
-    @user = User.new(user_params)
+    @user = User.create(user_params)
     if @user.save
+      log_in @user
       redirect_to(users_path, notice: 'Everything worked out!')
     else
       redirect_to(new_user_path,
-                  alert: 'Username / Email should be unique. All the fields should be populated')
+                  alert: @user.errors.full_messages.to_sentence)
     end
   end
 
@@ -35,7 +40,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to(users_path, notice: 'Deleted.') }
+      format.html { redirect_to root_path, notice: 'Deleted.' }
       format.js
     end
   end
@@ -47,6 +52,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(%i(username first_name last_name email phone))
+    params.require(:user).permit(%i(username first_name last_name email phone password))
   end
 end

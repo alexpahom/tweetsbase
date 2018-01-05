@@ -3,69 +3,73 @@ require 'test_helper'
 class UserControllerTest < ActionDispatch::IntegrationTest
   def setup
     @params = {
-      'username' => 'ninja-lady',
-      'first_name' => 'Selena',
-      'last_name' => 'Gilderoy',
-      'email' => 'ninja@example.com',
-      'phone' => '111-333-1121'
+      username: 'ninja-lady',
+      first_name: 'Selena',
+      last_name: 'Gilderoy',
+      email: 'ninja@example.com',
+      phone: '111-333-1121',
+      password: 'password',
+      password_confirmation: 'password'
     }
     @invalid_params = {
-      'username' => 'ninja-lady',
-      'first_name' => 'Selena',
-      'last_name' => '',
-      'email' => 'ninja1com',
-      'phone' => '111-333-1121'
+      username: 'ninja-lady',
+      first_name: 'Selena',
+      last_name: '',
+      email: 'ninja1com',
+      phone: '111-333-1121',
+      password: 'password'
     }
   end
 
   test 'Users are reachable' do
+    login :one
     get users_path
     assert_response :success
   end
 
-  test 'Creation page is reachable' do
-    get new_user_path
+  test 'Signup is reachable for not logged in user' do
+    # get new_user_path
+    get signup_path
     assert_response :success
   end
 
   test 'Show is reachable' do
-    get user_path(User.all.first)
+    login :one
+    get user_path(User.first)
     assert_response :success
   end
 
   test  'Create valid user' do
-    post '/users', params: { user: @params }
-    assert assigns(:user).valid?
+    assert_difference 'User.count', 1 do
+      post users_path, params: { user: @params }
+    end
     verify_redirects
   end
 
   test  'Create invalid user' do
-    post '/users', params: { user: @invalid_params }
-    assert_not assigns(:user).valid?
+    assert_difference 'User.count', 0 do
+      post users_path, params: { user: @invalid_params }
+    end
   end
 
   test 'Update is reachable' do
-    get edit_user_path(User.all.first)
+    login :one
+    get edit_user_path(User.find(10))
     assert_response :success
   end
 
   test 'Update valid user' do
-    user = User.all.first
+    login :one
+    user = User.first
     patch user_path(user), params: { user: @params }
     verify_redirects
   end
 
   test 'Delete user' do
-    user = User.first
-    delete user_path(user)
+    login :one
+    assert_difference 'User.count', -1 do
+      delete user_path(users(:one))
+    end
     verify_redirects
-    assert_not_equal user, User.first
-    assert_raise(Exception) { Message.find(user.id) }
-  end
-
-  test 'Placeholder text for no users' do
-    User.destroy_all
-    get users_path
-    assert_select 'em', 'No users found'
   end
 end

@@ -1,14 +1,16 @@
 <%= bootstrap_form_for(@user, layout: :horizontal) do |f| %>
   <div class="field">
-    <%= f.text_field :username %><br>
-    <%= f.text_field :first_name %><br>
-    <%= f.text_field :last_name %><br>
-    <%= f.email_field :email %><br>
-    <%= f.text_field :phone %><br>
+    <%= f.text_field :username %>
+    <%= f.text_field :first_name %>
+    <%= f.text_field :last_name %>
+    <%= f.email_field :email %>
+    <%= f.text_field :phone %>
+    <%= f.password_field :password %>
+    <%= f.password_field :password_confirmation %>
 
     <%= f.form_group do %>
       <%= f.primary %>
-      <%= link_to 'Go Back', users_path, class: 'btn btn-default' %>
+      <%= link_to 'Go Back', login_path, class: 'btn btn-default' %>
       <%= link_to 'Delete', @user, method: :delete,
                   data: { confirm: 'Sure?' }, class: 'btn btn-default' unless @user.new_record? %>
     <% end %>

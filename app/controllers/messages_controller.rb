@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   before_action :fetch_user, except: :recent
   before_action :fetch_message, only: %i(show edit update destroy)
+  skip_before_action :require_permission, only: %i(index show recent)
 
   def fetch_user
     @user = User.find(params[:user_id])
@@ -39,6 +40,7 @@ class MessagesController < ApplicationController
     end
   end
 
+  # TODO: pagination
   def recent
     @messages = Message.all.order(updated_at: :desc).limit(10)
   end

@@ -14,20 +14,17 @@
 
   <div id="main-container" class="container">
     <div class="row">
-      <div id="sidebar" class="col-xs-2">
-        <%= link_to image_tag('logo.png'), root_path %>
-        <ul id="menu" class="navbar nav">
-          <li><%= link_to 'Users', users_path %></li>
-          <li><%= link_to 'Messages', messages_path %></li>
-        </ul>
-      </div>
-      <div id="content" class="col-xs-8">
+      <%= render 'shared/sidebar' %>
+      <div id="content" class="col-xs-10">
         <div class="header">
           <h1 id="title"><b>LOREM IPSUM</b></h1>
           <i>lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor</i>
         </div>
+        <div id="flash">
           <%= render 'shared/errors' %>
-        <%= yield %>
+        </div>
+          <%= yield %>
+        <% console if Rails.env.development? %>
         <div class="footer">
 
         </div>

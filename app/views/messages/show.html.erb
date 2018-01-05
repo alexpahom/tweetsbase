@@ -7,9 +7,9 @@
     <%= content_tag(:p, "Last modified #{@message.updated_at.to_formatted_s(:long)}",
                     class: 'timing', data_date: "Created at #{@message.created_at.to_formatted_s(:long)}") %>
     <div class="actions">
-      <%= link_to 'Update', edit_user_message_path(@user, @message) %>
+        <%= link_to 'Update', edit_user_message_path(@user, @message) %>
+        <%= link_to 'Delete', @user[@message], method: :delete, data: { confirm: 'Sure?' } %>
       <%= link_to 'Back', user_messages_path(@user) %>
-      <%= link_to 'Delete', @user[@message], method: :delete, data: { confirm: 'Sure?' } %>
     </div>
   </div>
 </div>

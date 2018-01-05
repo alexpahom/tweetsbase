@@ -7,6 +7,7 @@ one:
   first_name: John
   last_name: Travolta
   phone: 123-321-4422
+  password_digest: <%= User.digest('password') %>
 
 two:
   id: 20
@@ -15,3 +16,4 @@ two:
   first_name: Nikolas
   last_name: Cage
   phone: 333-222-1123
+  password_digest: <%= User.digest('password') %>

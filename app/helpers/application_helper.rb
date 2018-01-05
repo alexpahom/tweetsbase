@@ -7,4 +7,17 @@ module ApplicationHelper
       notice: 'alert-info'
     }[flash_type.to_sym] || flash_type.to_s
   end
+
+  def owner?(text)
+    current_user.id == text.user_id
+  end
+
+  def admin?
+    false
+    # current_user.role == 'master'
+  end
+
+  def require_login
+    redirect_to login_path, alert: 'Log in to proceed' unless current_user
+  end
 end

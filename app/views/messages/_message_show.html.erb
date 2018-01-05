@@ -7,10 +7,9 @@
       <%= content_tag(:p, (link_to "By #{message.user.username}", user_messages_path(message.user)), class: 'author') %>
     <% else %>
       <div class="actions">
-      <%= link_to 'Update', edit_user_message_path(@user, message) %>
-      <%= link_to 'Delete', ([@user,message]), method: :delete, data: { confirm: 'Sure?' } %>
+        <%= link_to 'Update', edit_user_message_path(@user, message) %>
+        <%= link_to 'Delete', ([@user,message]), method: :delete, data: { confirm: 'Sure?' } %>
       </div>
     <% end %>
   </div>
 <% end %>
-<%= content_tag(:em, 'No messages yet. Go ahead and post!') if @messages.size == 0 %>
