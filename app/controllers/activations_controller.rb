@@ -1,5 +1,5 @@
 class ActivationsController < ApplicationController
-  # skip_before_action :require_login
+  skip_before_action :require_login
 
   def edit
     user = User.find_by(email: params[:email])
