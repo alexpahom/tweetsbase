@@ -24,6 +24,7 @@ class ResetsController < ApplicationController
       redirect_to(root_path, alert: 'can\'t be empty')
     elsif @user.update_attributes(user_params)
       log_in @user
+      @user.update_attribute(:reset_digest, nil)
       redirect_to(@user, notice: 'Password is changed')
     else
       redirect_to(edit_reset_path(@user.reset_token, email: @user.email), alert: 'Something went wrong')
