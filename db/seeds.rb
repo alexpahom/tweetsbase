@@ -20,7 +20,11 @@
     first_name: first,
     last_name: last,
     email: mail,
-    phone: phone_number
+    phone: phone_number,
+    password: 'password',
+    password_confirmation: 'password',
+    activated: true,
+    activated_at: Time.zone.now
   )
 end
 #
