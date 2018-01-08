@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     resources :messages
   end
   resources :activations, only: [:edit]
+  resources :resets, only: %i(new create edit update)
 end
