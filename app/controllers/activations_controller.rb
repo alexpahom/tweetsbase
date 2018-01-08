@@ -1,0 +1,2 @@
+class ActivationsController < ApplicationController
+end
