@@ -9,9 +9,13 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:session][:username])
     if user&.authenticate(params[:session][:password])
-      log_in user
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to messages_path, notice: 'Logged in'
+      if user.activated?
+        log_in user
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        redirect_to messages_path, notice: 'Logged in'
+      else
+        redirect_to(root_path, alert: 'Account is not yet activated')
+      end
     else
       redirect_to root_path, alert: 'Invalid username or password'
     end

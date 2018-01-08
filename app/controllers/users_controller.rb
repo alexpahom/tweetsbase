@@ -18,12 +18,12 @@ class UsersController < ApplicationController
   def edit; end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
     if @user.save
-      log_in @user
-      redirect_to(users_path, notice: 'Everything worked out!')
+      @user.send_activation_email
+      redirect_to(root_path, notice: 'Check your inbox on order to activate account')
     else
-      redirect_to(new_user_path,
+      redirect_to(root_path,
                   alert: @user.errors.full_messages.to_sentence)
     end
   end
