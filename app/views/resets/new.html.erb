@@ -1,0 +1,9 @@
+<h1 class="title">Reset Password</h1>
+
+<div class="field">
+  <%= bootstrap_form_for(:reset, url: new_reset_path) do |f| %>
+    <%= f.email_field :email %>
+    <%= f.primary 'Reset' %>
+    <%= link_to 'Back to login', root_path %>
+  <% end %>
+</div>
