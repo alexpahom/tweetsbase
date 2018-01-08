@@ -2,6 +2,7 @@
   <%= bootstrap_form_for(:session, url: login_path, layout: :horizontal) do |f| %>
     <%= f.text_field :username %>
     <%= f.password_field :password %>
+    <%= f.check_box :remember_me %>
     <%= f.primary 'Log in' %>
     <%= link_to 'Sign up', signup_path %>
     <%= link_to 'Forget password?', '#' %>
